@@ -28,23 +28,17 @@ const routes = [
     path: 'favorites',
     icon: <MdFavoriteBorder className="h-6 w-6" />,
   },
-  {
-    name: 'Profile',
-    layout: '',
-    path: 'profile',
-    icon: <MdPerson className="h-6 w-6" />,
-  },
-  {
-    name: 'Sign In',
-    layout: '/auth',
-    path: 'sign-in',
-    icon: <MdLock className="h-6 w-6" />,
-  },
-  {
-    name: 'Game',
-    layout: '/game',
-    path: '',
-    icon: <MdLock className="h-6 w-6" />,
-  },
+  // {
+  //   name: 'Profile',
+  //   layout: '',
+  //   path: 'profile',
+  //   icon: <MdPerson className="h-6 w-6" />,
+  // },
+  // {
+  //   name: 'Sign In',
+  //   layout: '/auth',
+  //   path: 'sign-in',
+  //   icon: <MdLock className="h-6 w-6" />,
+  // },
 ];
 export default routes;

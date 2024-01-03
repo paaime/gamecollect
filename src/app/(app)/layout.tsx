@@ -22,7 +22,7 @@ export default function Admin({ children }: { children: React.ReactNode }) {
   document.body.classList.add('dark');
   return (
     <div className="mb-[50px] flex h-full w-full bg-background-100 dark:bg-background-900 lg:mb-[0px]">
-      <MobileNavigation onOpenSidenav={() => setOpen(!open)} />
+      <MobileNavigation setOpen={setOpen} />
       {open && (
         <div className="fixed left-0 top-0 z-50 h-full w-full bg-white/10 backdrop-blur-md"></div>
       )}

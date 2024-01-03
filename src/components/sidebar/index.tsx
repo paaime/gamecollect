@@ -6,14 +6,37 @@ import Links from './components/Links';
 import SidebarCard from 'components/sidebar/components/SidebarCard';
 import { IRoute } from 'types/navigation';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 function SidebarHorizon(props: { routes: IRoute[]; [x: string]: any }) {
   const { routes, open, setOpen } = props;
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      // Check if the clicked element is outside the sidebar
+      const sidebarElement = document.getElementById('sidebar');
+      const openSidebar = document.getElementById('open-sidebar');
+      if (sidebarElement && !openSidebar.contains(event.target as Node)) {
+        // Close the sidebar
+        setOpen(false);
+      }
+    };
+
+    // Attach the event listener when the component mounts
+    document.addEventListener('click', handleOutsideClick);
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
   return (
     <div
       className={`sm:none duration-175 linear fixed !z-50 flex h-full flex-col overflow-hidden bg-white pb-10 shadow-white/5 transition-all dark:!bg-navy-800 dark:text-white md:!z-50 lg:!z-50 lg:m-4 lg:h-[calc(100vh-35px)] lg:rounded-3xl ${
         open ? 'translate-x-0' : '-translate-x-96 xl:translate-x-0'
       }`}
+      id="sidebar"
       style={{ width: '300px' }}
     >
       <span

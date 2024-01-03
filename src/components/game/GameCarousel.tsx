@@ -26,7 +26,7 @@ export default function GameCarousel({
   return (
     <div className="group my-5 flex w-full items-center">
       <div
-        className={`game-carousel-prev-${id} z-10 -ml-[15px] -mr-[17px] hidden h-8 w-8 items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer group-hover:flex`}
+        className={`game-carousel-prev-${id} z-10 -ml-[15px] -mr-[17px] hidden h-8 w-8 items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer md:group-hover:flex`}
       >
         <IoIosArrowBack style={{ fill: 'black' }} />
       </div>
@@ -56,7 +56,7 @@ export default function GameCarousel({
         ))}
       </Swiper>
       <div
-        className={`game-carousel-next-${id} z-10 -ml-[17px] -mr-[15px] flex hidden h-8 w-8 items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer group-hover:flex`}
+        className={`game-carousel-next-${id} z-10 -ml-[17px] -mr-[15px] flex hidden h-8 w-8 items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer md:group-hover:flex`}
       >
         <IoIosArrowForward style={{ fill: 'black' }} />
       </div>

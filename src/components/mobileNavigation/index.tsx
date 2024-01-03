@@ -5,12 +5,16 @@ import { FiAlignJustify } from 'react-icons/fi';
 import { MdOutlineCollectionsBookmark } from 'react-icons/md';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback } from 'react';
+import { Dispatch, SetStateAction, useCallback } from 'react';
 import { LiaSignInAltSolid } from 'react-icons/lia';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 
-function MobileNavigation({ onOpenSidenav }: { onOpenSidenav: () => void }) {
+function MobileNavigation({
+  setOpen,
+}: {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const session = useSession();
   const pathname = usePathname();
 
@@ -25,10 +29,11 @@ function MobileNavigation({ onOpenSidenav }: { onOpenSidenav: () => void }) {
   );
 
   return (
-    <div className="fixed bottom-0 z-10 flex h-20 w-full items-center justify-evenly border-t-2 border-navy-700 bg-navy-800  font-dm xl:hidden">
+    <div className="fixed bottom-0 z-20 flex h-20 w-full items-center justify-evenly border-t-2 border-navy-700 bg-navy-800  font-dm xl:hidden">
       <div
         className="flex cursor-pointer flex-col items-center gap-2 text-gray-600"
-        onClick={() => onOpenSidenav()}
+        id="open-sidebar"
+        onClick={() => setOpen(true)}
       >
         <FiAlignJustify className="h-6 w-6" />
         <span className="text-xs font-medium">Menu</span>

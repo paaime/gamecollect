@@ -9,7 +9,7 @@ export default function Numbers({
 }) {
   return (
     <div className="mx-auto mb-10 max-w-screen-md">
-      <div className="mx-auto flex w-3/4 items-center justify-around rounded-2xl bg-navy-800 p-7">
+      <div className="mx-auto flex w-full items-center justify-around rounded-2xl bg-navy-800 p-7 md:w-3/4">
         <div className="flex flex-col gap-2 text-center">
           {loading ? (
             <p className="h-10 w-full animate-pulse rounded-xl bg-navy-700 text-4xl font-bold"></p>
