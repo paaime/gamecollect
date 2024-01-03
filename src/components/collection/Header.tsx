@@ -44,7 +44,7 @@ export default function Header() {
         />
       </div>
       <div
-        className="align-items-center flex justify-evenly"
+        className="align-items-center flex justify-evenly "
         style={{
           // i want to add margin bottom when the image is scaled
           // but i don't know how to do it
@@ -54,7 +54,7 @@ export default function Header() {
         <Image
           width="2"
           height="20"
-          className="relative -mt-28 mb-3 h-full w-48 rounded-full border-8 border-navy-900"
+          className="relative -mt-28 mb-3 h-full w-48 rounded-full border-8 border-navy-900 bg-navy-900"
           src={`${user?.image}`}
           alt={`user profile picture`}
           style={{
