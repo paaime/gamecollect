@@ -1,7 +1,7 @@
 import GameCarousel from 'components/game/GameCarousel';
 
 async function getTrendings() {
-  const response = await fetch(`${process.env.DOMAIN}/api/trendings`, {
+  const response = await fetch(`/api/trendings`, {
     cache: 'no-cache',
   });
 

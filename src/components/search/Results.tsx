@@ -1,7 +1,7 @@
 import ResultCard from 'components/card/ResultCard';
 
 async function getResults(q: string) {
-  const response = await fetch(`${process.env.DOMAIN}/api/search?q=${q}`, {
+  const response = await fetch(`/api/search?q=${q}`, {
     cache: 'no-cache',
   });
 

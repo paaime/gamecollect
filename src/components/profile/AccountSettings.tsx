@@ -16,7 +16,7 @@ const AccountSettings = ({ user }: { user: any }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${process.env.DOMAIN}/api/user/settings/username`,
+        `/api/user/settings/username`,
         {
           method: 'POST',
           headers: {

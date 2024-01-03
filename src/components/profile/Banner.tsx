@@ -40,7 +40,7 @@ const Banner = ({ user }: { user: any }) => {
       formData.append('file', file);
 
       const response = await fetch(
-        `${process.env.DOMAIN}/api/user/settings/profile_picture`,
+        `/api/user/settings/profile_picture`,
         {
           method: 'POST',
           headers: {

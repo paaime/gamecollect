@@ -22,7 +22,7 @@ const SignUp = () => {
         return;
       }
       setLoading(true);
-      const response = await fetch(`${process.env.DOMAIN}/api/register`, {
+      const response = await fetch(`/api/register`, {
         method: 'POST',
         body: JSON.stringify({
           email: email,

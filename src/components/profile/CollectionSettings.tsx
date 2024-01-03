@@ -20,7 +20,7 @@ const CollectionSettings = ({ user }: { user: any }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${process.env.DOMAIN}/api/user/settings/collection`,
+        `/api/user/settings/collection`,
         {
           method: 'POST',
           headers: {
