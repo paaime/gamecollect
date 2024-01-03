@@ -18,7 +18,7 @@ export default function CollectionList() {
   const getCollection = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.DOMAIN}/api/collection`);
+      const response = await fetch(`/api/collection`);
 
       const data = await response.json();
       setCollectionList(data.games);
