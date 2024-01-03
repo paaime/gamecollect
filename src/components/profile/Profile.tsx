@@ -43,11 +43,11 @@ const Profile = () => {
         </div>
       </div>
 
-      {user?.password && (
+      {/* {user?.password && (
         <div className="col-span-5 lg:col-span-6 lg:mb-0 3xl:col-span-5">
           <Password />
         </div>
-      )}
+      )} */}
       <Logout />
     </div>
   );
