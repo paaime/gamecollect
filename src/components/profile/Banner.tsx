@@ -83,7 +83,7 @@ const Banner = ({ user, setUser }: { user: any; setUser: any }) => {
             <Image
               width="2"
               height="20"
-              className="relative  h-full w-48 rounded-full border-8 border-navy-900"
+              className="max-w-48 relative h-full w-48 rounded-full border-8 border-navy-900"
               src={`${user?.image}`}
               alt={`user profile picture`}
             />
