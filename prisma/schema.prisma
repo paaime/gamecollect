@@ -1,0 +1,75 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  id                String  @id @default(cuid()) @map("_id")
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String      @id @default(cuid()) @map("_id") 
+  username      String?     @unique
+  email         String?     @unique
+  emailVerified DateTime?
+  password      String?     @db.String
+  image         String?
+  createdAt     DateTime    @default(now())
+  accounts      Account[]
+  sessions      Session[]
+  collection    Collection?  
+  favorites     Favorites?
+}
+
+model VerificationToken {
+  id         String   @id @default(cuid()) @map("_id")
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// model for the user's collection wich contain a property public to know if the user is public or not and a property items wich is an array of id of game
+model Collection {
+  id           String  @id @default(cuid()) @map("_id")
+  public       Boolean @default(true)
+  public_price Boolean @default(true)
+  items        Int[]   @default([])
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String  @unique
+}
+
+// model for the favorite wich contain only a array of BigInt wich is the id of the game
+model Favorites {
+  id     String @id @default(cuid()) @map("_id")
+  userId String @unique
+  items  Int[]  @default([])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

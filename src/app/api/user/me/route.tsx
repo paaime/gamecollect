@@ -1,0 +1,28 @@
+import { getAuthSession } from 'lib/auth';
+import { db } from 'lib/db';
+import { NextResponse } from 'next/server';
+
+export async function GET(req: Request) {
+  try {
+    const session = await getAuthSession();
+
+    if (!session?.user) {
+      return NextResponse.json(
+        { error_msg: 'You have to be logged in.' },
+        { status: 401 },
+      );
+    }
+
+    const user = await db.user.findFirst({
+      where: { email: session.user.email },
+      include: { collection: true },
+    });
+
+    return new Response(JSON.stringify(user));
+  } catch (e) {
+    return NextResponse.json(
+      { error_msg: 'Something went wrong, please try again.' },
+      { status: 500 },
+    );
+  }
+}

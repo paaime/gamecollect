@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #0b1437;
+}
+
+form {
+	width: 100%;
+}
+
+option {
+  color: black;
+}
+
+.shadow-scroll {
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 30px;
+    background: linear-gradient(90deg, rgb(11 20 55), transparent);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 30px;
+    background: linear-gradient(270deg, rgb(11 20 55), transparent);
+  }
+}
+
+.shadow-scroll-right {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 30px;
+    background: linear-gradient(270deg, rgb(11 20 55), transparent);
+  }
+}
+
+.small-card {
+  -webkit-transition: background-size 300ms linear;
+  -moz-transition: background-size 300 linear;
+  -o-transition: background-size 300 linear;
+  -ms-transition: background-size 300ms linear;
+  transition: background-size 300ms linear;
+  background-size: 100% !important;
+  background-position: center !important;
+}
+
+.small-card:hover {
+  background-size: 105% !important;
+}
