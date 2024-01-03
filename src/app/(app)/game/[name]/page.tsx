@@ -20,7 +20,7 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 async function getGame(name: string) {
-  const response = await fetch(`/api/game?name=${name}`, {
+  const response = await fetch(`${process.env.DOMAIN}/api/game?name=${name}`, {
     cache: 'no-cache',
   });
 

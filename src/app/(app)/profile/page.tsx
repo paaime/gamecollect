@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 async function getUser() {
-  const response = await fetch(`/api/user/me`, {
+  const response = await fetch(`${process.env.DOMAIN}/api/user/me`, {
     cache: 'no-cache',
     headers: headers(),
   });
