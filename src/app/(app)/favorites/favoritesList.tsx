@@ -23,7 +23,7 @@ export default function FavoritesList() {
   const getFavorites = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/favorites`);
+      const response = await fetch(`${process.env.DOMAIN}/api/favorites`);
 
       const data = await response.json();
       setFavoritesList(data);

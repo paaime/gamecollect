@@ -54,7 +54,7 @@ const Providers: FC<LayoutProps> = ({ children }) => {
 
       if (!session?.user) return;
 
-      const response = await fetch('/api/user', {
+      const response = await fetch(`${process.env.DOMAIN}/api/user`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const Providers: FC<LayoutProps> = ({ children }) => {
   ) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/collection/items', {
+      const response = await fetch(`${process.env.DOMAIN}/api/collection/items`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ const Providers: FC<LayoutProps> = ({ children }) => {
   ) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/favorites', {
+      const response = await fetch(`${process.env.DOMAIN}/api/favorites`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
