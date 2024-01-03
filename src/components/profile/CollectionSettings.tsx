@@ -2,7 +2,7 @@
 import Card from 'components/card';
 import Switch from 'components/switch';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineLoading } from 'react-icons/ai';
 
@@ -19,19 +19,16 @@ const CollectionSettings = ({ user }: { user: any }) => {
   const saveChanges = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-        `/api/user/settings/collection`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            publicCollection,
-            publicCollectionPrice,
-          }),
+      const response = await fetch(`/api/user/settings/collection`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          publicCollection,
+          publicCollectionPrice,
+        }),
+      });
 
       const data = await response.json();
 
@@ -64,7 +61,7 @@ const CollectionSettings = ({ user }: { user: any }) => {
         <div className="ml-3 mt-3 flex items-center gap-3">
           <Switch
             id="switch1"
-            defaultChecked={user?.collection?.public}
+            defaultChecked={publicCollection}
             onChange={(e) => setPublicCollection(e.target.checked)}
           />
           <label
@@ -76,8 +73,8 @@ const CollectionSettings = ({ user }: { user: any }) => {
         </div>
         <div className="ml-3 mt-3 flex items-center gap-3">
           <Switch
-            id="switch1"
-            defaultChecked={user?.collection?.public_price}
+            id="switch2"
+            defaultChecked={publicCollectionPrice}
             onChange={(e) => setPublicCollectionPrice(e.target.checked)}
           />
           <label

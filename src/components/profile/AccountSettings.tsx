@@ -6,7 +6,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineLoading } from 'react-icons/ai';
 
-const AccountSettings = ({ user }: { user: any }) => {
+const AccountSettings = ({ user, setUser }: { user: any; setUser: any }) => {
   const { update } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -15,18 +15,15 @@ const AccountSettings = ({ user }: { user: any }) => {
   const saveChanges = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-        `/api/user/settings/username`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username,
-          }),
+      const response = await fetch(`/api/user/settings/username`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          username,
+        }),
+      });
 
       const data = await response.json();
 
@@ -36,8 +33,7 @@ const AccountSettings = ({ user }: { user: any }) => {
 
       toast.success('Settings updated successfully.');
       update();
-
-      router.refresh();
+      setUser((prev: any) => ({ ...prev, username }));
     } catch (e) {
       toast.error(e.message);
     } finally {

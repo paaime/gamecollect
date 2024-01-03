@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       },
     });
 
-    return new Response(JSON.stringify({}));
+    return new Response(JSON.stringify({ image: imageUploaded.url }));
   } catch (e) {
     console.log(e);
     return NextResponse.json(

@@ -22,7 +22,7 @@ const convertBase64 = (file) => {
   });
 };
 
-const Banner = ({ user }: { user: any }) => {
+const Banner = ({ user, setUser }: { user: any; setUser: any }) => {
   const { update } = useSession();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -57,6 +57,7 @@ const Banner = ({ user }: { user: any }) => {
 
       toast.success('Profile picture updated successfully.');
       update();
+      setUser((prev: any) => ({ ...prev, image: data.image }));
     } catch (e) {
       toast.error(e.message);
     } finally {

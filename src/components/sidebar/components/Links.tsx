@@ -29,10 +29,10 @@ export const SidebarLinks = (props: { routes: RoutesType[] }): JSX.Element => {
   const createLinks = (routes: RoutesType[]) => {
     let routesItems = routes.map((route, index) => {
       if (
-        route.layout === '/admin' ||
+        (route.layout === '/admin' ||
         route.layout === '/auth' ||
         route.layout === '/rtl' ||
-        route.layout === ''
+        route.layout === '') && !route.hidden
       ) {
         return (
           <NavLink key={index} href={route.layout + '/' + route.path}>

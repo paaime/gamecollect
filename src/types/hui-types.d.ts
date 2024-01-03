@@ -12,5 +12,6 @@ declare global {
     icon: JSX.Element | string;
     path: string;
     secondary?: boolean | undefined;
+    hidden?: boolean | undefined;
   }
 }
