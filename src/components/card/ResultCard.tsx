@@ -65,7 +65,7 @@ const ResultCard = ({
           </div>
           {!isCarousel && (
             <button
-              className="linear w-full rounded-[12px] bg-brand-400 px-4 py-2 text-sm font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90"
+              className="linear w-full rounded-[12px] bg-brand-400 px-4 py-2 text-xs md:text-sm font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90"
               onClick={(e) => {
                 e.preventDefault();
                 updateCollectionItemsTest(game.id, setLoading);
