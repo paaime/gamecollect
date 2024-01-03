@@ -23,7 +23,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [user]);
 
   return (
     <div className="flex w-full flex-col gap-5 lg:gap-5">
