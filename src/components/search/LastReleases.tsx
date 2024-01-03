@@ -1,7 +1,7 @@
 import GameCarousel from 'components/game/GameCarousel';
 
 async function getLastRelease() {
-  const response = await fetch(`/api/last_releases`, {
+  const response = await fetch(`${process.env.DOMAIN}/api/last_releases`, {
     cache: 'no-cache',
   });
 
